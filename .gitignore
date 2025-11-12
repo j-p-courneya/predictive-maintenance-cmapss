@@ -1,3 +1,18 @@
+
+# Ignore raw & processed data (not versioned)
 data/raw/
+data/interim/
+data/processed/
+
+# Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# Python cache
 __pycache__/
+*.pyc
+
+# Virtual envs
+.env/
+.venv/
+*.egg-info/
+
