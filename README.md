@@ -1,34 +1,33 @@
-# Predictive Maintenance on NASA C-MAPSS (Turbofan RUL)
+# Predictive Maintenance on NASA C-MAPSS (Turbofan RUL) Dataset Overview
 
-Starter scaffold for Remaining Useful Life prediction using NASA C-MAPSS.
+##Background
 
 6. Turbofan Engine Degradation Simulation
 Engine degradation simulation was carried out using the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). Four different sets were simulated under different combinations of operational conditions and fault modes. This records several sensor channels to characterize fault evolution. The data set was provided by the NASA Ames Prognostics Center of Excellence (PCoE).
 
-Download: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+Download the data: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+
 Data Set Citation: A. Saxena and K. Goebel (2008). ???Turbofan Engine Degradation Simulation Data Set???, NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA
 
- README.md  Predictive Maintenance on NASA C-MAPSS Turbofan Dataset
-Overview
 
 This project implements a Predictive Maintenance pipeline using the NASA C-MAPSS Turbofan Engine Degradation Dataset  a benchmark for Remaining Useful Life (RUL) estimation.
 The goal is to predict when an engine is likely to fail, using multivariate time-series data from engine sensors.
 
 Youll build this project step by step  from raw data exploration to feature engineering, model training, and dashboard visualization  mirroring how predictive maintenance systems are built in industry.
 
- Objectives
+## Objectives
 
-Learn to work with time-series sensor data (messy, noisy, incomplete).
+- Learn to work with time-series sensor data (messy, noisy, incomplete).
 
-Engineer meaningful features to capture degradation trends.
+- Engineer meaningful features to capture degradation trends.
 
-Train models (LSTM / XGBoost / tree ensembles) to predict RUL.
+- Train models (LSTM / XGBoost / tree ensembles) to predict RUL.
 
-Communicate results clearly using visualizations and dashboards.
+- Communicate results clearly using visualizations and dashboards.
 
-Build a portfolio project that demonstrates practical ML + data-engineering skill.
+- Build a portfolio project that demonstrates practical ML + data-engineering skill.
 
- Dataset Summary
+## Dataset Summary
 
 NASA C-MAPSS Turbofan Engine Degradation Simulation Data Set
 
@@ -109,19 +108,19 @@ data/processed/test_FD001.csv
 
 Optionally, visualize distributions post-scaling.
 
- Setup Instructions
+## Setup Instructions
 # Clone repo and enter project
 git clone https://github.com/<yourname>/predictive-maintenance-cmapss.git
 cd predictive-maintenance-cmapss
 
-# Create and activate environment
+### Create and activate environment
 conda create -n cmapss python=3.11 -y
 conda activate cmapss
 
-# Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 
-# Start Jupyter
+### Start Jupyter
 jupyter notebook
 
  Key Dependencies
@@ -147,15 +146,13 @@ Proceedings of the 1st International Conference on Prognostics and Health Manage
 
  Step-4: Dashboard & Reporting
 
- Why This Project Matters
+## Why This Project Matters
 
 Predictive maintenance bridges AI and real-world reliability.
+
 This project gives you hands-on experience with:
 
-Multivariate time-series modeling,
-
-Feature engineering for physical systems,
-
-End-to-end ML workflow (data  model  visualization).
-
-Perfect for a portfolio or interview project in ML Ops / Data Science / IoT AI.
+- Multivariate time-series modeling,
+- Feature engineering for physical systems,
+- End-to-end ML workflow (data  model  visualization).
+- Perfect for a portfolio or interview project in ML Ops / Data Science / IoT AI.
