@@ -32,6 +32,9 @@ Each “FD” subset represents a different experimental setup:
 | **FD003** | 1 | 2 | 100 | 100 | HPC + Fan Degradation |
 | **FD004** | 6 | 2 | 248 | 249 | HPC + Fan Degradation (multi-condition) |
 
+Download the data: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+
+Data Set Citation: A. Saxena and K. Goebel (2008). ???Turbofan Engine Degradation Simulation Data Set???, NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA
 ---
 
 ## 🧱 Project Structure
