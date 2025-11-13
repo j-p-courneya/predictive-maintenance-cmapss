@@ -1,158 +1,119 @@
-# Predictive Maintenance on NASA C-MAPSS (Turbofan RUL) Dataset Overview
+# Predictive Maintenance on NASA C-MAPSS Turbofan Dataset
 
-## Background
+## Overview
 
-6. Turbofan Engine Degradation Simulation
-Engine degradation simulation was carried out using the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). Four different sets were simulated under different combinations of operational conditions and fault modes. This records several sensor channels to characterize fault evolution. The data set was provided by the NASA Ames Prognostics Center of Excellence (PCoE).
+This project implements a **Predictive Maintenance** pipeline using the **NASA C-MAPSS Turbofan Engine Degradation Dataset** — a benchmark for Remaining Useful Life (RUL) estimation.  
+The goal is to **predict when an engine is likely to fail**, using multivariate time-series data from engine sensors.
 
-Download the data: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+You’ll build this project step by step — from raw data exploration to feature engineering, model training, and dashboard visualization — mirroring how predictive maintenance systems are built in industry.
 
-Data Set Citation: A. Saxena and K. Goebel (2008). ???Turbofan Engine Degradation Simulation Data Set???, NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA
+---
 
+## 🎯 Objectives
 
-This project implements a Predictive Maintenance pipeline using the NASA C-MAPSS Turbofan Engine Degradation Dataset  a benchmark for Remaining Useful Life (RUL) estimation.
-The goal is to predict when an engine is likely to fail, using multivariate time-series data from engine sensors.
-
-Youll build this project step by step  from raw data exploration to feature engineering, model training, and dashboard visualization  mirroring how predictive maintenance systems are built in industry.
-
-## Objectives
-
-- Learn to work with time-series sensor data (messy, noisy, incomplete).
-
-- Engineer meaningful features to capture degradation trends.
-
-- Train models (LSTM / XGBoost / tree ensembles) to predict RUL.
-
-- Communicate results clearly using visualizations and dashboards.
-
+- Learn to work with **time-series sensor data** (messy, noisy, incomplete).  
+- Engineer meaningful features to capture **degradation trends**.  
+- Train models (LSTM / XGBoost / tree ensembles) to **predict RUL**.  
+- Communicate results clearly using **visualizations and dashboards**.  
 - Build a portfolio project that demonstrates practical ML + data-engineering skill.
 
-## Dataset Summary
+---
 
-NASA C-MAPSS Turbofan Engine Degradation Simulation Data Set
+## 🧩 Dataset Summary
 
-Each FD subset represents a different experimental setup:
+**NASA C-MAPSS Turbofan Engine Degradation Simulation Data Set**
 
-Dataset	Conditions	Fault Modes	Train Engines	Test Engines	Description
-FD001	1	1	100	100	HPC Degradation
-FD002	6	1	260	259	HPC Degradation (multi-condition)
-FD003	1	2	100	100	HPC + Fan Degradation
-FD004	6	2	248	249	HPC + Fan Degradation (multi-condition)
+Each “FD” subset represents a different experimental setup:
 
-Each file (train/test/RUL) contains:
+| Dataset | Conditions | Fault Modes | Train Engines | Test Engines | Description |
+|---------|------------|-------------|----------------|---------------|-------------|
+| **FD001** | 1 | 1 | 100 | 100 | HPC Degradation |
+| **FD002** | 6 | 1 | 260 | 259 | HPC Degradation (multi-condition) |
+| **FD003** | 1 | 2 | 100 | 100 | HPC + Fan Degradation |
+| **FD004** | 6 | 2 | 248 | 249 | HPC + Fan Degradation (multi-condition) |
 
-26 space-separated numeric columns
+---
 
-engine_id, cycle, 3 operational settings, and 21 sensors (s1s21)
+## 🧱 Project Structure
 
-Test RUL file provides the true RUL for each engines final recorded cycle.
-
- Project Structure
+```
 predictive-maintenance-cmapss/
- data/
-    raw/              # Original NASA data files
-    interim/          # Intermediate cleaned data
-    processed/        # Feature-engineered datasets ready for modeling
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   └── processed/
+├── src/
+│   └── utils/
+│       └── cmapss.py
+├── notebooks/
+│   ├── 01_data_overview.ipynb
+│   └── 02_preprocessing.ipynb
+├── dashboard/
+├── requirements.txt
+└── README.md
+```
 
- src/
-    utils/
-        cmapss.py     # Data loading, validation, and helper functions
+---
 
- notebooks/
-    01_data_overview.ipynb   # Step-1: EDA and understanding sensor behavior
-    02_preprocessing.ipynb   # Step-2: Labeling, cleaning, and scaling
+## 🧠 Workflow Overview
 
- dashboard/             # (Later) interactive dashboard or Streamlit app
- requirements.txt
- README.md
+| Step | Notebook | Description |
+|------|-----------|-------------|
+| **1** | `01_data_overview.ipynb` | Load raw data, visualize sensor trends, inspect correlations, identify useful sensors. |
+| **2** | `02_preprocessing.ipynb` | Add RUL labels, drop bad sensors, scale features, save clean CSVs. |
+| **3** | `03_modeling.ipynb` *(future)* | Build predictive models (LSTM, XGBoost). |
+| **4** | `04_dashboard.ipynb` *(future)* | Visualize degradation & predictions. |
 
- Workflow Overview
-Step	Notebook	Description
-1	01_data_overview.ipynb	Load raw data, visualize sensor trends, inspect correlations, and note which sensors are meaningful.
-2	02_preprocessing.ipynb	Add RUL labels, drop uninformative sensors, scale/normalize features, and save clean datasets.
-3	03_modeling.ipynb (future)	Build predictive models (LSTM, XGBoost, etc.) and evaluate RUL predictions.
-4	04_dashboard.ipynb (future)	Visualize degradation curves, predicted vs actual RUL, and maintenance schedule simulation.
- Step-1 Recap (Completed)
+---
 
-Youve already:
+## 🧩 Step-1 Recap
 
-Implemented src/utils/cmapss.py to robustly load any FD dataset (flat or nested layout).
+You’ve already:
+- Implemented robust data loading utilities  
+- Loaded subset **FD001**  
+- Explored:
+  - Sensor behavior  
+  - Engine variability  
+  - Correlations with cycle & RUL  
+- Identified sensor keep/drop lists  
 
-Loaded FD001 successfully.
+---
 
-Explored:
+## 🔜 Step-2 Preview
 
-Sensor behavior vs cycle count
+Next steps:
+1. Add RUL labels  
+2. Clean noisy/flat sensors  
+3. Scale features  
+4. Save processed datasets  
 
-Engine-to-engine variability
+---
 
-Correlations with cycle and RUL
+## ⚙️ Setup Instructions
 
-Identified candidate sensors to keep/drop for modeling.
-
- Step-2 Preview  Labeling & Preprocessing
-
-Next you will:
-
-Add RUL labels to each training row (RUL = max_cycle - cycle).
-
-Drop flat/noisy sensors based on your EDA.
-
-Scale features (per-sensor normalization or standardization).
-
-Save cleaned data as:
-
-data/processed/train_FD001.csv
-data/processed/test_FD001.csv
-
-
-Optionally, visualize distributions post-scaling.
-
-## Setup Instructions
-# Clone repo and enter project
+```bash
 git clone https://github.com/<yourname>/predictive-maintenance-cmapss.git
 cd predictive-maintenance-cmapss
-
-### Create and activate environment
 conda create -n cmapss python=3.11 -y
 conda activate cmapss
-
-### Install dependencies
 pip install -r requirements.txt
-
-### Start Jupyter
 jupyter notebook
+```
 
- Key Dependencies
-Library	Purpose
-pandas / numpy	Data manipulation
-matplotlib	Visualization
-scikit-learn	Preprocessing, scaling, metrics
-tensorflow / pytorch	(later) Deep learning models
-xgboost / lightgbm	Gradient boosting models
- Reference
+---
 
-A. Saxena, K. Goebel, D. Simon, N. Eklund,
-Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation,
-Proceedings of the 1st International Conference on Prognostics and Health Management (PHM08), Denver, CO, 2008.
+## 📚 Reference
 
- Roadmap (high-level)
+A. Saxena et al.,  
+*“Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation,”* PHM08, Denver CO, 2008.
 
- Step-1: Data Exploration
+---
 
- Step-2: Labeling & Preprocessing
+## 🏁 Why This Project Matters
 
- Step-3: Modeling (LSTM, XGBoost)
+Predictive maintenance bridges **AI and physical systems**, giving experience in:
+- Multivariate time-series modeling  
+- Feature engineering  
+- End-to-end ML workflow  
 
- Step-4: Dashboard & Reporting
-
-## Why This Project Matters
-
-Predictive maintenance bridges AI and real-world reliability.
-
-This project gives you hands-on experience with:
-
-- Multivariate time-series modeling,
-- Feature engineering for physical systems,
-- End-to-end ML workflow (data  model  visualization).
-- Perfect for a portfolio or interview project in ML Ops / Data Science / IoT AI.
+Perfect for portfolios & interviews in ML, IoT, or MLOps.
