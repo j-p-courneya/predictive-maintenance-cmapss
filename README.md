@@ -115,5 +115,3 @@ Predictive maintenance bridges **AI and physical systems**, giving experience in
 - Multivariate time-series modeling  
 - Feature engineering  
 - End-to-end ML workflow  
-
-Perfect for portfolios & interviews in ML, IoT, or MLOps.
