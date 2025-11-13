@@ -34,7 +34,8 @@ Each “FD” subset represents a different experimental setup:
 
 Download the data: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
 
-Data Set Citation: A. Saxena and K. Goebel (2008). ???Turbofan Engine Degradation Simulation Data Set???, NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA
+Data Set Citation: A. Saxena and K. Goebel (2008). Turbofan Engine Degradation Simulation Data Set, NASA Prognostics Data Repository, NASA Ames Research Center, Moffett Field, CA
+
 ---
 
 ## 🧱 Project Structure
